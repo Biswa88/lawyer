@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCaseDealToUsersTable extends Migration
+class CreateStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddCaseDealToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('case_deal');
+        Schema::create('states', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name');
+            $table->boolean('status')->default(1);
+
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class AddCaseDealToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('case_deal');
-        });
+        Schema::dropIfExists('states');
     }
 }

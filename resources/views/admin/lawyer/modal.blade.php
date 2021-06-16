@@ -15,7 +15,7 @@
           <p>Email:{{$user->email}}</p>
           <p>BCR:{{$user->bcr}}</p>
           <p>Address:{{$user->address}}</p>
-          <p>Case_deal:{{$user->case_deal}}</p>
+          <p>Case_deal:{{$user->case_type}}</p>
           <p>Gender:{{$user->gender}}</p>
           <p>Phone:{{$user->phone}}</p>
           <p>About:{{$user->description}}</p>

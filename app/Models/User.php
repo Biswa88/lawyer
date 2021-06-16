@@ -24,7 +24,9 @@ class User extends Authenticatable
         'address',
         'bcr',
         'image',
-        'case_deal',
+        'case_type',
+        'gender',
+        'phone',
         'description',
     ];
 

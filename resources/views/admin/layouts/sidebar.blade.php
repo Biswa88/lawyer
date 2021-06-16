@@ -106,13 +106,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ route('case_deal.create') }}" class="nav-link">
+                    <a href="{{ route('case_type.create') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Create</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ route('case_deal.index') }}" class="nav-link">
+                    <a href="{{ route('case_type.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>View</p>
                     </a>
@@ -120,6 +120,61 @@
                 </ul>
               </li>
               @endif
+              {{-- @if(auth()->check()&& auth()->user()->role->name ==='admin') --}}
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    State Master
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right">2</span>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('state.create') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    {{-- <a href="{{ route('.index') }}" class="nav-link"> --}}
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>View</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    District Master
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right">2</span>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('district.create') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    {{-- <a href="{{ route('.index') }}" class="nav-link"> --}}
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>View</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+
+              
+              {{-- @endif --}}
 
 
               @if(auth()->check()&& auth()->user()->role->name ==='lawyer')

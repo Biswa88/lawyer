@@ -39,13 +39,13 @@
 	<div class="card-header"><h3>Confirm delete</h3></div>
 	<div class="card-body">
         
-        <h2>{{$case_deal->case_deal}}</h2>
-		<form class="forms-sample" action="{{route('case_deal.destroy',[$case_deal->id])}}" method="post" >@csrf
+        <h2>{{$case_type->case_type}}</h2>
+		<form class="forms-sample" action="{{route('case_type.destroy',[$case_type->id])}}" method="post" >@csrf
             @method('DELETE')
 			
             <div class="card-footer">
                 <button type="submit" class="btn btn-danger mr-2">Confirm</button>
-                <a href="{{route('case_deal.index')}}" class="btn btn-secondary">
+                <a href="{{route('case_type.index')}}" class="btn btn-secondary">
                     Cancel
                   
                 </a>

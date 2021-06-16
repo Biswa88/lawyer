@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Case_deal;
+use App\Models\Case_type;
 
-class Case_dealController extends Controller
+class Case_typeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class Case_dealController extends Controller
      */
     public function index()
     {
-        $case_deals = Case_deal::get();
-        return view('admin.case_deal.index',compact('case_deals'));
+        $case_types = Case_type::get();
+        return view('admin.case_type.index',compact('case_types'));
     }
 
     /**
@@ -25,7 +25,7 @@ class Case_dealController extends Controller
      */
     public function create()
     {
-        return view('admin.case_deal.create');
+        return view('admin.case_type.create');
     }
 
     /**
@@ -37,10 +37,10 @@ class Case_dealController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'case_deal'=>'required'
+            'case_type'=>'required'
 
         ]);
-        Case_deal::create($request->all());
+        Case_type::create($request->all());
         return redirect()->back()->with('message','Case_type created');
     }
 
@@ -52,8 +52,8 @@ class Case_dealController extends Controller
      */
     public function show($id)
     {
-        $case_deal = Case_deal::find($id);
-        return view('admin.case_deal.delete',compact('case_deal'));
+        $case_type = Case_type::find($id);
+        return view('admin.case_type.delete',compact('case_type'));
     }
 
     /**
@@ -64,8 +64,8 @@ class Case_dealController extends Controller
      */
     public function edit($id)
     {
-        $case_deal = Case_deal::find($id);
-        return view('admin.case_deal.edit',compact('case_deal'));
+        $case_deal = Case_type::find($id);
+        return view('admin.case_type.edit',compact('case_type'));
     }
 
     /**
@@ -78,12 +78,12 @@ class Case_dealController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'case_deal'=>'required'
+            'case_type'=>'required'
         ]);
-        $case_deal = Case_deal::find($id);
-        $case_deal->case_deal = $request->case_deal;
-        $case_deal->save();
-        return redirect()->route('case_deal.index')->with('message','Case_type Created updated');
+        $case_type = Case_type::find($id);
+        $case_type->case_type = $request->case_type;
+        $case_type->save();
+        return redirect()->route('case_type.index')->with('message','Case_type Created updated');
     }
 
     /**
@@ -94,8 +94,8 @@ class Case_dealController extends Controller
      */
     public function destroy($id)
     {
-        $case_deal = Case_deal::find($id);
-        $case_deal->delete();
-        return redirect()->route('case_deal.index')->with('message','Case_type deleted');
+        $case_type = Case_type::find($id);
+        $case_type->delete();
+        return redirect()->route('case_type.index')->with('message','Case_type deleted');
     }
 }

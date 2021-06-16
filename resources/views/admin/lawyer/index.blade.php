@@ -22,7 +22,7 @@
           <th>Email</th>
           <th>BCR</th>
           <th>Address</th>
-          <th>Case_deal</th>
+          <th>Case_Type</th>
           <th>Gender</th>
           <th>Phone No</th>
           <th>About</th>
@@ -42,9 +42,9 @@
                 <td>{{$user->bcr}}</td>
                 <td>{{$user->address}}</td>
                
-                 <td>{{$user->case_deal}}</td>
-                 <td>{{$user->phone}}</td>
+                 <td>{{$user->case_type}}</td>
                  <td>{{$user->gender}}</td>
+                 <td>{{$user->phone}}</td>
                  <td>{{$user->description}}</td>
                 
                   {{-- <td>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCaseDealsTable extends Migration
+class CreateCaseTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCaseDealsTable extends Migration
      */
     public function up()
     {
-        Schema::create('case_deals', function (Blueprint $table) {
+        Schema::create('case_types', function (Blueprint $table) {
             $table->id();
-            $table->string('case_deal');
+            $table->string('case_type');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateCaseDealsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('case_deals');
+        Schema::dropIfExists('case_types');
     }
 }

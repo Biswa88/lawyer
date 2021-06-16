@@ -28,12 +28,12 @@
           <tbody>
               
              
-              @foreach($case_deals as $key=>$case_deal)
+              @foreach($case_types as $key=>$case_type)
               <tr>
                 <td>{{$key+1}}</td>
                   
 
-                  <td>{{$case_deal->case_deal}}</td>
+                  <td>{{$case_type->case_type}}</td>
                   
                   
                    
@@ -42,9 +42,9 @@
                           {{--  <a href="#" data-toggle="modal" data-target="#exampleModal{{$case_deal->id}}"class="btn btn-info">View
                           
                           </a>  --}}
-                          <a href="{{route('case_deal.edit',[$case_deal->id])}}" class="btn btn-primary">Update</a>
+                          <a href="{{route('case_type.edit',[$case_type->id])}}" class="btn btn-primary">Update</a>
                           
-                           <a href="{{route('case_deal.show',[$case_deal->id])}}" class="btn btn-warning">Delete </a>   
+                           <a href="{{route('case_type.show',[$case_type->id])}}" class="btn btn-warning">Delete </a>   
                              {{--   <form action="{{route('case_deal.edit',[$case_deal->id])}}" method="post">@csrf
                                 @method('DELETE')
                                 <button type="submit">Delete</button>

@@ -38,14 +38,14 @@
 	<div class="card">
 	<div class="card-header"><h3>Add Case_type</h3></div>
 	<div class="card-body">
-		  <form class="forms-sample" action="{{route('case_deal.store')}}" method="post" >@csrf  
+		  <form class="forms-sample" action="{{route('case_type.store')}}" method="post" >@csrf  
 			<div class="row">
 				<div class="col-lg-6">
                     <div class="form-group">
 
 					<label for=""> Case</label>
-					<input type="text" name="case_deal" class="form-control @error('case_deal') is-invalid @enderror" placeholder="case_deal" value="                   {{old('case_deal')}}">
-                    @error('case_deal')
+					<input type="text" name="case_type" class="form-control @error('case_type') is-invalid @enderror" placeholder="case_type" value="                   {{old('case_type')}}">
+                    @error('case_type')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

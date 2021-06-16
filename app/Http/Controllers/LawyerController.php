@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Case_type;
 
 class LawyerController extends Controller
 {
@@ -28,7 +30,10 @@ class LawyerController extends Controller
      */
     public function create()
     {
-        return view('admin.lawyer.create');
+
+        $roles = Role::pluck('name', 'id');
+        $case_type = Case_type::pluck('case_type', 'id');
+        return view('admin.lawyer.create', compact('case_type', 'roles'));
     }
 
     /**
@@ -72,7 +77,11 @@ class LawyerController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.lawyer.edit',compact('user'));
+
+        $roles = Role::pluck('name', 'id');
+        $case_type = Case_type::pluck('case_type', 'id');
+
+        return view('admin.lawyer.edit',compact('user','roles','case_type'));
     }
 
     /**
@@ -137,7 +146,7 @@ class LawyerController extends Controller
             'image'=>'required|mimes:jpeg,jpg,png',
             'role_id'=>'required',
             'description'=>'required',
-            'case_deal'=>'required',
+            'case_type'=>'required',
             'gender'=>'required',
             'phone'=>'required'
             
@@ -152,7 +161,7 @@ class LawyerController extends Controller
             'bcr'=>'required',
             
             'address'=>'required',
-            'case_deal'=>'required',
+            'case_type'=>'required',
             
             
             'image'=>'mimes:jpeg,jpg,png',
