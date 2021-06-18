@@ -34,8 +34,15 @@ Route::get('/search',[SearchController::class,'search'])->name('web.search');
 
 
 
+Route::get('/create-user','Auth\RegisterController@createUser')->name('create_user');
 
 Route::get('/dashboard','DashboardController@index');
+
+Route::group(['prefix'=>'public-lawyer'],function(){
+    Route::get('/create','publicview\LawyersController@create')->name('public_view.create');
+    Route::post('/save','publicview\LawyersController@save')->name('public_view.save');
+});
+
  
 
 

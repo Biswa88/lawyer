@@ -4,12 +4,13 @@ namespace App\Http\Controllers\publicview;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Master\District;
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('publicview.home');
+        $districts = District::pluck('name','id');
+        return view('publicview.home',compact('districts'));
     }
 
     public function aboutUs() {

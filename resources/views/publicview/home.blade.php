@@ -8,19 +8,16 @@
             <div class="tour-search-one__inner">
                 <div class="tour-search-one__inputs">
                     <div class="tour-search-one__input-box">
-                        <label for="place">Where to</label>
+                        <label for="place">Search</label>
                         <input type="text" placeholder="Enter keywords" name="place" id="place">
                     </div><!-- /.tour-search-one__input-box -->
                     <div class="tour-search-one__input-box">
-                        <label for="when">When</label>
-                        <input type="text" placeholder="September" name="when" id="when">
+                        <label for="when">Date</label>
+                        <input type="text" placeholder="Select Date" name="when" id="datepicker">
                     </div><!-- /.tour-search-one__input-box -->
                     <div class="tour-search-one__input-box">
-                        <label for="type">Type</label>
-                        <select class="selectpicker" id="type">
-                            <option value="Adventure">Adventure</option>
-                            <option value="Wildlife">Wildlife</option>
-                            <option value="Sightseeing">Sightseeing</option>
+                        <label for="type">District</label>
+                        {!! Form::select('district_id', $districts, null,['id'=>'district_id','placeholder'=>'Select District','autocomplete'=>'off']) !!}
                         </select>
                     </div><!-- /.tour-search-one__input-box -->
                 </div><!-- /.tour-search-one__inputs -->

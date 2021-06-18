@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vegas.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/nouislider.pips.css') }}">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Zebra_datepicker/1.9.18/css/bootstrap/zebra_datepicker.min.css" integrity="sha512-m/itLbtr4RKMErTLBb2BL6uQXIW1xBC3IXnlBe+/JTBktlOH5s5wpmsh0Z0D9zZs5wH1FKcNWF2za5njkkLEbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
@@ -57,7 +57,7 @@
                             <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-dribbble"></i></a>
                         </div><!-- /.topbar-one__social -->
-                        <a href="contact.html" class="topbar-one__guide-btn">Become a local guide</a>
+                        <a href="{{  route('public_view.create') }}" class="topbar-one__guide-btn">Register as a Lawyer</a>
                     </div><!-- /.topbar-one__right -->
                 </div><!-- /.container-fluid -->
             </div><!-- /.topbar-one -->
@@ -90,9 +90,15 @@
     <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
     <script src="{{ asset('assets/js/isotope.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Zebra_datepicker/1.9.18/zebra_datepicker.min.js" integrity="sha512-+jF6u7aOmduPkX9JBkvp1B5XgGqvfc3fPGWJG43Ci18tZ4hR1jgHMrlWrM8ai73KzuMc6hvp+9S2k9ggGKYTiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- template scripts -->
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <script>
+        $('#datepicker').Zebra_DatePicker({
+    direction: 1
+});
+    </script>
 </body>
 
 </html>

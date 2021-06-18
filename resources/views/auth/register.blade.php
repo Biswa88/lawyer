@@ -60,6 +60,38 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <?php 
+                        $genders = [];
+    
+                        $genders['male'] = 'Male';
+                        $genders['female'] = 'Female';
+                        $genders['others'] = 'Others';
+    
+                    ?>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+
+                            <div class="col-md-6">
+        {!! Form::select('gender',$genders, null,['class'=>'form-control','id'=>'gender','placeholder'=>'Select Gender','autocomplete'=>'off','required'=>'true']) !!}
+                               
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                               {!!   Form::select('role_id', $roles, null,['class'=>'form-control','id'=>'role_id','placeholder'=>'Select Role','autocomplete'=>'off','required'=>'true']) !!}
+            
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Phone No') }}</label>
+
+                            <div class="col-md-6">
+        {!! Form::text('phone', null,['class'=>'form-control','id'=>'phone','placeholder'=>'Enter Phone Number','autocomplete'=>'off','required'=>'true']) !!}
+                               
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -30,7 +30,7 @@
 			<div class="row">
 
 				<div class="col-lg-6">
-					<label for="">State name</label>
+					{{-- <label for="">State name</label>
 					<select name="state_id" class="form-control">
                         <option value="-1">Select State</option>
 
@@ -42,16 +42,24 @@
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
+                        {!! Form::label('State_id','',array('class'=>'')) !!}
+                        {!! Form::select('state_id', $states, null,['class'=>'form-control','id'=>'state_id','placeholder'=>'select state_id','autocomplete'=>'off','required'=>'true']) !!}
+                        
+                        {!! $errors->first('state_id','<span class="help-inline">:message</span>') !!}
 				</div>
                 <div class="col-lg-6">
-					<label for="">District name</label>
+					{{-- <label for="">District name</label>
 					<input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="enter name" value="{{old('name')}}">
                     @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
+                        {!! Form::label('District name','',array('class'=>'')) !!}
+                        {!! Form::text('name',null,['class'=>'form-control','id'=>'name','placeholder'=>'name','autocomplete'=>'off','required'=>'true']) !!}
+                        
+                        {!! $errors->first('name','<span class="help-inline">:message</span>') !!}
 				</div>
             </div>
         

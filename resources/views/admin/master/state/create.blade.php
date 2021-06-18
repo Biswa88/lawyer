@@ -97,14 +97,19 @@
 				<div class="col-lg-6">
                     <div class="form-group">
 
-                        <label for="">State name</label>
+                        {{-- <label for="">State name</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="enter name" value="{{old('name')}}">
                         @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
-				</div>
+                            @enderror--}}
+                            {!! Form::label('State name','',array('class'=>'')) !!}
+                        {!! Form::text('name',null,['class'=>'form-control','id'=>'name','placeholder'=>'name','autocomplete'=>'off','required'=>'true']) !!}
+                        
+                        {!! $errors->first('name','<span class="help-inline">:message</span>') !!}
+
+				</div> 
            
             <div class="form-group">
 

@@ -43,13 +43,10 @@
 				<div class="col-lg-6">
                     <div class="form-group">
 
-					<label for=""> Case</label>
-					<input type="text" name="case_type" class="form-control @error('case_type') is-invalid @enderror" placeholder="case_type" value="                   {{old('case_type')}}">
-                    @error('case_type')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        {!! Form::label('Case','',array('class'=>'')) !!}
+                        {!! Form::text('case_type',null,['class'=>'form-control','id'=>'case_type','placeholder'=>'case_type','autocomplete'=>'off','required'=>'true']) !!}
+                        
+                        {!! $errors->first('case_type','<span class="help-inline">:message</span>') !!}
 				</div>
            
             <div class="form-group">

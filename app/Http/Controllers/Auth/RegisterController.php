@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
+use Illuminate\Support\Facades\Redirect;
+
 class RegisterController extends Controller
 {
     /*
@@ -56,6 +58,11 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function createUser() {
+        $roles = Role::pluck('name', 'id');
+        return view('auth.register', compact('roles'));
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -66,11 +73,15 @@ class RegisterController extends Controller
 
     {
         $role = Role::where('name','client')->first();
-        return User::create([
+        if($user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role_id' => $role->id,
-        ]);
+            'gender'=>$data['gender'],
+            'phone'=>$data['phone'],
+        ])){
+            return Redirect::url('dashboard');
+        }
     }
 }

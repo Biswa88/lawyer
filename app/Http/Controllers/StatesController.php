@@ -10,7 +10,8 @@ use Redirect;
 class StatesController extends Controller
 {
     public function create() {
-        return view('admin.master.state.create');
+        $states = State::pluck('name', 'id');
+        return view('admin.master.state.create',compact('states'));
     }
 
 
@@ -21,4 +22,5 @@ class StatesController extends Controller
 
         $state = State::create($data);
     }
+   
 }
