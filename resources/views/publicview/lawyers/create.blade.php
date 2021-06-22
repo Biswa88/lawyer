@@ -69,7 +69,7 @@
                         <div class="col-md-6">
                             <div class="input-group">
                                 {!! Form::label('role','',array('class'=>'')) !!}<br>
-                                <div class="col-md-12">{!! Form::select('role_id', $roles, null,['class'=>'form-control','id'=>'role_id','placeholder'=>'Select Role','autocomplete'=>'off','required'=>'true']) !!}</div>
+                                <div class="col-md-12">{!! Form::select('role_id', $roles, 3,['class'=>'form-control', 'disabled' => true, 'id'=>'role_id','placeholder'=>'Select Role','autocomplete'=>'off','required'=>'true']) !!}</div>
             
                             </div><!-- /.input-group -->
                         </div><!-- /.col-md-6 -->
@@ -136,6 +136,15 @@
                             </div><!-- /.input-group -->
                         </div><!-- /.col-md-12 -->
 
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                {!! Form::label('District','',array('class'=>'')) !!}
+                                <div class="col-md-12">
+                                     {!! Form::select('district_id', $districts, null,['class'=>'form-control','id'=>'district_id','placeholder'=>'select district','autocomplete'=>'off','required'=>'true']) !!}
+                                </div>
+                                {!! $errors->first('district_id','<span class="help-inline">:message</span>') !!}
+                            </div><!-- /.input-group -->
+                        </div>
 
                         <div class="col-md-12">
                             <div class="input-group">
@@ -145,13 +154,21 @@
                                 {!! $errors->first('description','<span class="help-inline">:message</span>') !!}
                             </div><!-- /.input-group -->
                         </div><!-- /.col-md-12 -->
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                {!! Form::label('consultancy_fees','',array('class'=>'')) !!}
+                                {!! Form::number('consultancy_fees',null,['class'=>'form-control', 'rows' => 4, 'id'=>'consultancy_fees','placeholder'=>'Consultancy Fees','autocomplete'=>'off','required'=>'true']) !!}
+                                
+                                {!! $errors->first('consultancyfees','<span class="help-inline">:message</span>') !!}
+                            </div><!-- /.input-group -->
+                        </div>
                         
 
 
 
                         <div class="col-md-12">
                             <div class="input-group">
-                                <button type="submit" class="thm-btn contact-one__btn">Send message</button><!-- /.thm-btn contact-one__btn -->
+                                <button type="submit" class="thm-btn contact-one__btn">SUBMIT</button><!-- /.thm-btn contact-one__btn -->
                             </div><!-- /.input-group -->
                         </div><!-- /.col-md-12 -->
                     </div><!-- /.row low-gutters -->
@@ -162,4 +179,12 @@
 </section>
 
 
+@stop
+
+@section('pageCss')
+<style>
+    .blog-details__content {
+        border:none !important;
+    }
+</style>
 @stop

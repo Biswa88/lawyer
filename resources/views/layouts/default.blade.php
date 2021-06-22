@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home One || Tripo || Travel & Tourism Agencies HTML Template</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="'assets/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="'assets/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="'assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="'assets/images/favicons/site.webmanifest">
+    <title>Online Lawyer Booking || Hire</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="'assets/images/favicons/apple-touch-icon.png'">
+    <link rel="icon" type="image/png" sizes="32x32" href="'assets/images/favicons/favicon-32x32.png'">
+    <link rel="icon" type="image/png" sizes="16x16" href="'assets/images/favicons/favicon-16x16.png'">
+    <link rel="manifest" href="'assets/images/favicons/site.webmanifest'">
 
     <!-- plugin scripts -->
 
@@ -35,20 +35,28 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+
+    @yield('pageCss')
+    <style>
+        .client-btn-nav {
+            background: #900C3F;
+            color: #F7F7F7;
+        }
+    </style>
 </head>
 
 <body>
     <div class="preloader">
-        <img src="'assets/images/loader.png" class="preloader__image" alt="">
+        <img src="{{ asset('assets/images/loader.png') }}" class="preloader__image" alt="">
     </div><!-- /.preloader -->
     <div class="page-wrapper">
         <div class="site-header__header-one-wrap">
             <div class="topbar-one">
                 <div class="container-fluid">
                     <div class="topbar-one__left">
-                        <a href="mailto:needhelp@tripo.com">needhelp@tripo.com</a>
+                        <a href="mailto:appointmentlawyer@gmail.com">appointmentlawyer@gmail.com</a>
                         <a href="tel:666-999-0000">666 999 0000</a>
-                        <a href="#">77 broklyn street new york</a>
+                         <a href="#"><h2>Online Lawyer Hiring</h2></a> 
                     </div><!-- /.topbar-one__left -->
                     <div class="topbar-one__right">
                         <div class="topbar-one__social">
@@ -58,6 +66,7 @@
                             <a href="#"><i class="fab fa-dribbble"></i></a>
                         </div><!-- /.topbar-one__social -->
                         <a href="{{  route('public_view.create') }}" class="topbar-one__guide-btn">Register as a Lawyer</a>
+                        <a href="{{  route('public_view.create1') }}" class="topbar-one__guide-btn client-btn-nav">Register as a Client</a>
                     </div><!-- /.topbar-one__right -->
                 </div><!-- /.container-fluid -->
             </div><!-- /.topbar-one -->

@@ -2,5 +2,5 @@
 @include('admin.layouts.sidebar') 
 <div class="content-wrapper"> 
 @yield('content')
-</div>
+{{-- </div> --}}
 @include('admin.layouts.footer')

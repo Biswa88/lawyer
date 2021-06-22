@@ -4,10 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="footer-widget__column footer-widget__about">
-                <a href="index.html" class="footer-widget__logo"><img src="assets/images/logo-dark.png" width="123" alt=""></a>
-                <p>Tripo is a premium HTML Template for tours, travels, trips, adventures and a wide range of other
-                    tour agencies.</p>
-                <a href="mailto:needhelp@tripo.com">needhelp@tripo.com</a> <br>
+                <a href="index.html" class="footer-widget__logo"><img src="assets/images/img1.jpg" width="123" alt=""></a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum expedita, laudantium, recusandae consequuntur, neque sapiente culpa saepe unde in labore assumenda! Accusantium similique, numquam voluptatem sint neque expedita optio doloremque..</p>
+                <a href="mailto:appointmentlawyer@gmail.com">appointmentlawyer@gmail.com</a> <br>
                 <a href="tel:888-999-0000">888 999 0000</a>
             </div><!-- /.footer-widget__column -->
             <div class="footer-widget__column footer-widget__links">
@@ -107,8 +106,8 @@
     </nav>
     <div class="side-menu__sep"></div><!-- /.side-menu__sep -->
     <div class="side-menu__content">
-        <p>Tripo is a premium wordpress theme for travel, tours, trips, adventures and a wide range of other tour agencies.</p>
-        <p><a href="mailto:needhelp@tripo.com">needhelp@tripo.com</a> <br> <a href="tel:888-999-0000">888 999 0000</a></p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem iusto, labore provident illo a, aspernatur quae non velit nisi repellat fuga et consectetur neque enim voluptate cum suscipit voluptatibus quisquam.</p>
+        <p><a href="mailto:appointmentlawyer@gmail.com">appointmentlawyer@gmail.com</a> <br> <a href="tel:888-999-0000">888 999 0000</a></p>
         <div class="side-menu__social">
             <a href="#"><i class="fab fa-facebook-square"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>

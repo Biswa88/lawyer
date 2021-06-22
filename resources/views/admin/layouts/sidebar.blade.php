@@ -45,7 +45,7 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  <li class="nav-item">
+                  {{--  <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Dashboard v1</p>
@@ -62,27 +62,27 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Dashboard v3</p>
                     </a>
-                  </li>
+                  </li>  --}}
                 </ul>
               </li>
 
-              @if(auth()->check()&& auth()->user()->role->name ==='admin')
+              @if(auth()->check()&& auth()->user()->role->name ==='lawyer')
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
-                    Lawyer
+                    My Profile
                     <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right">2</span>
+                    <span class="badge badge-info right"></span>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  <li class="nav-item">
+                  {{--  <li class="nav-item">
                     <a href="{{ route('lawyer.create') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Create</p>
                     </a>
-                  </li>
+                  </li>  --}}
                   <li class="nav-item">
                     <a href="{{ route('lawyer.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -120,7 +120,7 @@
                 </ul>
               </li>
               @endif
-              {{-- @if(auth()->check()&& auth()->user()->role->name ==='admin') --}}
+               @if(auth()->check()&& auth()->user()->role->name ==='admin') 
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -174,7 +174,7 @@
 
 
               
-              {{-- @endif --}}
+               @endif 
 
 
               @if(auth()->check()&& auth()->user()->role->name ==='lawyer')

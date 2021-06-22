@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Case_type;
+use Auth;
 
 class LawyerController extends Controller
 {
@@ -17,8 +18,9 @@ class LawyerController extends Controller
     public function index()
     {
         //dd(\Auth::user()->role->name);
-        $users  = User::where('role_id','!=',1)->get();
-        return view('admin.lawyer.index',compact('users'));
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        return view('admin.lawyer.index',compact('user'));
 
     }
     
@@ -34,6 +36,17 @@ class LawyerController extends Controller
         $roles = Role::pluck('name', 'id');
         $case_type = Case_type::pluck('case_type', 'id');
         return view('admin.lawyer.create', compact('case_type', 'roles'));
+    }
+    public function deactivate_lawyer()
+    {
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $user->status = 0;
+        $user->save();
+
+        Auth::logout();
+        return redirect('/login')->with(['messgae' => 'User Deactivated !']);
+
     }
 
     /**

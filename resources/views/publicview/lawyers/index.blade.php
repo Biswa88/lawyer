@@ -2,7 +2,7 @@
 
 
   @extends('admin.layouts.master')
-  @section('content')
+@section('content')
 <div class="card">
     <div class="card-header">
          @if(Session::has('message'))
@@ -14,7 +14,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <table id="example11" class="table table-bordered table-striped">
+      <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
           <th>Lawyer Name</th>
@@ -33,11 +33,11 @@
         </thead>
         <tbody>
             
-          @if(auth()->check()&& auth()->user()->role->name ==='lawyer')
            
+            @foreach($users as $user)
             <tr>
                 <td>{{$user->name}}</td>
-                <td><img src="{{asset( $user->image )}}" class="table-user-thumb" alt=""></td>
+                <td><img src="{{asset('images')}}/{{$user->image}}" class="table-user-thumb" alt=""></td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->bcr}}</td>
                 <td>{{$user->address}}</td>
@@ -72,7 +72,8 @@
                @include('admin.lawyer.modal')
 
 
-            @endif
+
+            @endforeach
            
              
         

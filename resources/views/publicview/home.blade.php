@@ -1,23 +1,40 @@
 @extends('layouts.default')
 
 @section('main_content')
-<section class="banner-one" style="background-image: url('assets/images/backgrounds/banner-1-1-bg.jpg);">
+
+<section class="banner-one" style="background-image: url('assets/images/backgrounds/home_banner.jpg');">
     <div class="container">
         
-        <form class="tour-search-one" action="tour-sidebar.html">
+            {!! Form::open(array('route'=>['public.search.lawyer'],
+            'id'=>'public.search.lawyer',
+            'class' => 'tour-search-one', 
+            'method' => 'GET',
+            )) !!}
             <div class="tour-search-one__inner">
                 <div class="tour-search-one__inputs">
-                    <div class="tour-search-one__input-box">
-                        <label for="place">Search</label>
-                        <input type="text" placeholder="Enter keywords" name="place" id="place">
+                    <div class="tour-search-one__input-box bx1">
+                        <label for="place">Lawyer name</label>
+                        <input type="text" placeholder="Enter keywords" name="q" id="q">
                     </div><!-- /.tour-search-one__input-box -->
-                    <div class="tour-search-one__input-box">
-                        <label for="when">Date</label>
-                        <input type="text" placeholder="Select Date" name="when" id="datepicker">
+
+
+                    <div class="tour-search-one__input-box bx1">
+                        <label for="place">Case Type</label>
+                        {!! Form::select('case_type', $case_types, null,['class' => 'form-control',   'id'=>'case_type','placeholder'=>'Select Case Type','autocomplete'=>'off']) !!}
+            
                     </div><!-- /.tour-search-one__input-box -->
-                    <div class="tour-search-one__input-box">
-                        <label for="type">District</label>
-                        {!! Form::select('district_id', $districts, null,['id'=>'district_id','placeholder'=>'Select District','autocomplete'=>'off']) !!}
+                    
+                    <div class="tour-search-one__input-box bx1">
+                                    <label for="place">Consultancy Fees</label>
+                                    <input type="number" placeholder="Consultancy Fees" name="cfes" id="cfes">
+                                </div>
+
+                             
+                    <div class="tour-search-one__input-box bx2">
+                        <label for="type" class="control-label">District</label>
+                        {!! Form::select('district_id', $districts, null,['id'=>'district_id', 
+                        'class' => 'form-control',
+                        'placeholder'=>'Select District','autocomplete'=>'off']) !!}
                         </select>
                     </div><!-- /.tour-search-one__input-box -->
                 </div><!-- /.tour-search-one__inputs -->
@@ -32,8 +49,8 @@
 <section class="features-one__title">
     <div class="container">
         <div class="block-title text-center">
-            <p>Call our agents to book!</p>
-            <h3>Tripo Award Winning and Top <br> Rated Tour Operator</h3>
+            <p></p>
+            <h3></h3>
         </div><!-- /.block-title -->
     </div><!-- /.container -->
 </section><!-- /.features-one__title -->

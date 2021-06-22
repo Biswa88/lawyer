@@ -24,7 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        if(Auth::user()->role->id== 1 ){
+            return redirect()->route('user_profile');
+        }
+
         if(Auth::user()->role->name=="admin"||Auth::user()->role->name=="lawyer" ){
+
+
+            if(! Auth::user()->status):
+                Auth::logout();
+                return view('user_disabled');
+
+            endif;
+
             return redirect()->to('/dashboard');
         }
         return view('home');

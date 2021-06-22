@@ -76,13 +76,13 @@
                                
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
                                {!!   Form::select('role_id', $roles, null,['class'=>'form-control','id'=>'role_id','placeholder'=>'Select Role','autocomplete'=>'off','required'=>'true']) !!}
             
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Phone No') }}</label>

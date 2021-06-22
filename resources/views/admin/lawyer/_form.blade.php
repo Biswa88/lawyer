@@ -27,12 +27,15 @@
 
 
 
-    <div class="col-lg-6">
-        {!! Form::label('password','',array('class'=>'')) !!}
+   
+        <div class="col-lg-6">
+        {!! Form::label('Password','',array('class'=>'')) !!}
         {!! Form::password('password',null,['class'=>'form-control','id'=>'password','placeholder'=>'password','autocomplete'=>'off','required'=>'true']) !!}
         
         {!! $errors->first('password','<span class="help-inline">:message</span>') !!}
     </div>
+
+
 </div>
           
 

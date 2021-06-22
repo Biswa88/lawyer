@@ -4,7 +4,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="main-nav__logo-box">
                 <a href="index.html" class="main-nav__logo">
-                    <img src="assets/images/logo-dark.png" class="main-logo" width="123" alt="Awesome Image" />
+                   <img src="{{ asset('assets/images/law_logo.jpg') }}" class="main-logo" width="123" alt="Awesome Image" />
                 </a>
                 <a href="#" class="side-menu__toggler"><i class="fa fa-bars"></i>
                     <!-- /.smpl-icon-menu --></a>
@@ -29,7 +29,7 @@
             </div><!-- /.navbar-collapse -->
             <div class="main-nav__right">
               
-                <a href="#" class="main-nav__login"><i class="tripo-icon-avatar"></i></a>
+                <a href="{{ route('login') }}" class="main-nav__login"><i class="tripo-icon-avatar"></i></a>
                
             </div><!-- /.main-nav__right -->
         </div>

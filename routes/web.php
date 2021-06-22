@@ -18,18 +18,19 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/','publicview\HomeController@index')->name('public.home');
+Route::get('/search-lawyer','publicview\LawyersController@search')->name('public.search.lawyer');
 Route::get('/about-our-organization','publicview\HomeController@aboutUs')->name('about_us');
 Route::get('/contact-us','publicview\HomeController@contactUs')->name('contact_us');
 
-Route::get('/new-appointment/{lawyerId}/{date}','FrontendController@show')->name('create.appointment');
+Route::get('/new-appointment','FrontendController@show')->name('create.appointment');
 
 Route::group(['middleware'=>['auth','client']],function(){
 Route::post('/book/appointment','FrontendController@store')->name('booking.appointment');
 Route::get('/my-booking','FrontendController@myBookings')->name('my.booking');
-Route::get('/user-profile','ProfileController@index');
+Route::get('/user-profile','ProfileController@index')->name('user_profile');
 Route::post('/bprofile','ProfileController@store')->name('profile.store');
 Route::post('/profile-pic','ProfileController@profilePic')->name('profile.pic');
-Route::get('/search',[SearchController::class,'search'])->name('web.search');
+//Route::get('/search',[SearchController::class,'search'])->name('web.search');
 });
 
 
@@ -41,6 +42,10 @@ Route::get('/dashboard','DashboardController@index');
 Route::group(['prefix'=>'public-lawyer'],function(){
     Route::get('/create','publicview\LawyersController@create')->name('public_view.create');
     Route::post('/save','publicview\LawyersController@save')->name('public_view.save');
+});
+Route::group(['prefix'=>'public-client'],function(){
+    Route::get('/create','publicview\ClientsController@create')->name('public_view.create1');
+    Route::post('/save','publicview\ClientsController@save')->name('public_view.save');
 });
 
  
@@ -79,6 +84,8 @@ Route::group(['middleware'=>['auth','lawyer']],function(){
 
 Route::resource('appointment','AppointmentController');
 Route::post('/appointment/check','AppointmentController@check')->name('appointment.check');
-Route::post('/appointment/update','AppointmentController@updateTime')->name('update');
+Route::resource('lawyer','LawyerController');
+Route::get('lawyer-profile-deactivate','LawyerController@deactivate_lawyer')->name('deactivate_lawyer');
+
 });
 

@@ -27,10 +27,15 @@ class FrontendController extends Controller
     	return view('welcome',compact('lawyers'));
         
        }
-       public function show($lawyerId,$date)
+       public function show(Request $request)
        {
+           $lawyerId = $request->lawyer_id;
+           $date = $request->date;
+
            $appointment = Appointment::where('user_id',$lawyerId)->where('date',$date)->first();
+           if(!$appointment) return redirect()->back()->with('Apppointment not available');
            $times = Time::where('appointment_id',$appointment->id)->where('status',0)->get();
+           
            
            $user = User::where('id',$lawyerId)->first();
            $lawyer_id = $lawyerId;
