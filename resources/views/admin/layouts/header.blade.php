@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Online Lawyer Hiring</title>
-
+ 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -17,47 +17,51 @@
   <link rel="stylesheet" href={{asset('backend/dist/css/adminlte.min.css')}}>
   <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
   
-  <!-- daterange picker -->
+  {{-- <!-- daterange picker -->
   <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">  --}}
 
-  <!-- daterange picker -->
+   <!-- daterange picker -->
   <link rel="stylesheet" href={{asset('plugins/daterangepicker/daterangepicker.css')}}>
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href={{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}>
+  <link rel="stylesheet" href={{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}> 
 
 
 
 <!-- daterange picker -->
-<link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+ <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}"> 
 <!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 <!-- Bootstrap Color Picker -->
-<link rel="stylesheet" href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
 <!-- Tempusdominus Bootstrap 4 -->
-<link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
 <!-- Select2 -->
-<link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 <!-- Bootstrap4 Duallistbox -->
-<link rel="stylesheet" href="../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
 <!-- BS Stepper -->
-<link rel="stylesheet" href="../../plugins/bs-stepper/css/bs-stepper.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/bs-stepper/css/bs-stepper.min.css') }}">
 <!-- dropzonejs -->
-<link rel="stylesheet" href="../../plugins/dropzone/min/dropzone.min.css">
+<link rel="stylesheet" href="{{ asset('plugins/dropzone/min/dropzone.min.css') }}">
 <!-- Theme style -->
-<link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
 
 
    <!-- DataTables -->
-   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+   <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
    <!-- Theme style -->
-   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-</head>
+   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   
+   {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+@yield('pageCss')
+  </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -104,53 +108,31 @@
               <i class="fas fa-expand-arrows-alt"></i>
             </a>
           </li>
-          {{-- <li class="nav-item"> --}}
-            <li class="nav-item">
-            
-             
-              <a class="nav-link" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-            <i class="fa fa-sign-out" aria-hidden="true"></i>  {{ __('Logout') }}
-           </a>
-          </li>
-           
+          
+
+          
          
-           
-
-           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              
-               @csrf
-           </form>
-            </a>
-          </li>
-
-
-
           <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-               
-            </a>
-           
+              
+          @if(Auth::user()->role->name=="admin"||Auth::user()->role->name=="lawyer" )
+          
+               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+               </a>   
+              
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>  
+                 <a class="dropdown-item" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+              </a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+              </div>
+           @endif
             
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                
-                
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-                
-                 <a href="{{ route('password.change') }}" class="dropdown-item"> Change Password</a>  
-                
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                   
-                    @csrf
-                </form>
-            </div>
         </li>
 
 

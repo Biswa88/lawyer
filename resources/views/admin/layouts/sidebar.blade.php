@@ -1,11 +1,18 @@
 
-      <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+       <!-- Main Sidebar Container -->
+       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-         <a href="index3.html" class="brand-link">
-         {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">--}}
-          <span class="brand-text font-weight-light">Lawyer Find</span>
+        <a href="#" class="brand-link">
+        
+          <img src="{{ asset('assets/images/law_logo.jpg')}}" class="brand-image img-circle elevation-3" height=50 weight=50 >
+          @if(auth()->check()&& auth()->user()->role->name ==='lawyer')
+          <span class="brand-text font-weight-light">Lawyer Panel</span>
         </a>
+          @endauth
+          @if(auth()->check()&& auth()->user()->role->name ==='admin')
+          <span class="brand-text font-weight-light">Admin Panel</span>
+        </a>
+          @endauth
     
         <!-- Sidebar -->
         <div class="sidebar">
@@ -128,7 +135,7 @@
                   <p>
                     State Master
                     <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right">2</span>
+                    <span class="badge badge-info right">1</span>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -138,12 +145,7 @@
                       <p>Create</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    {{-- <a href="{{ route('.index') }}" class="nav-link"> --}}
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>View</p>
-                    </a>
-                  </li>
+                  
                 </ul>
               </li>
 
@@ -164,7 +166,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    {{-- <a href="{{ route('.index') }}" class="nav-link"> --}}
+                     <a href="{{ route('district.index') }}" class="nav-link"> 
                       <i class="far fa-circle nav-icon"></i>
                       <p>View</p>
                     </a>
@@ -184,7 +186,7 @@
                   <p>
                     Appointment Time
                     <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right">2</span>
+                    <span class="badge badge-info right">3</span>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -198,6 +200,12 @@
                     <a href="{{ route('appointment.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Check</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('lawyer.view_all_appointments') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>My Clients</p>
                     </a>
                   </li>
                </ul>
@@ -230,7 +238,33 @@
               </ul>
             </li>
             @endif
-              
+            @if(auth()->check()&& auth()->user()->role->name ==='admin') 
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  List
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('lawyer.index1') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Lawyer List</p>
+                  </a>
+                </li>
+                 <li class="nav-item">
+                  <a href="{{ route('lawyer.index2') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Client List</p>
+                  </a>
+                </li>
+            </ul>
+          </li>
+          @endif
+
          
          
          

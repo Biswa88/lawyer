@@ -24,4 +24,41 @@ class DistrictsController extends Controller
 
         $state = District::create($data);
     }
+    public function index()
+    {
+        $districts = District::get();
+        return view('admin.master.district.index',compact('districts'));
+    }
+ public function show($id)
+     {
+       $districts1 = District::find($id);
+        return view('admin.master.district.delete',compact('districts1'));
+     }
+     public function edit($id)
+     {
+         $districts2 = District::find($id);
+         return view('admin.master.district.edit',compact('districts2'));
+     }
+     public function update(Request $request, $id)
+     {
+         $this->validate($request,[
+           'name'=>'required'
+       ]);
+     $name = District::find($id);
+         $name->name = $request->name;
+        $name->save();
+        return redirect()->route('admin.master.district.index')->with('message','District  updated');
+     }
+
+    
+     
+     public function destroy($id)
+     {
+         $name = District::find($id);
+         $name->delete();
+         return redirect()->route('admin.master.district.index')->with('message','District deleted');
+     }
 }
+
+
+

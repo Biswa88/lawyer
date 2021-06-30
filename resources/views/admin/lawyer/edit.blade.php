@@ -42,7 +42,8 @@
         	{!! Form::model($user,array('route'=>['lawyer.update',($user->id)],
                 'id'=>'lawyer.store', 
                 'files' => true, 
-                'class'=>'forms-sample'
+                'class'=>'forms-sample',
+                'method' => 'PUT'
                 )) !!}    
 			@include('admin.lawyer._form')
               <button type="submit" class="btn btn-primary mr-2">Update</button>
@@ -54,6 +55,24 @@
 		</div>
 	</div>
 </div>
+
+@section('pageCss')
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+    .blog-details__content {
+        border:none !important;
+    }
+</style>
+@stop
+
+@section('pageJs')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $('#case_type').select2();
+</script>
+
+@stop
 
 
 @endsection

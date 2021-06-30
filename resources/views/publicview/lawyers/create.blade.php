@@ -130,7 +130,12 @@
                             <div class="input-group">
                                 {!! Form::label('Case_type','',array('class'=>'')) !!}
                                 <div class="col-md-12">
-                                     {!! Form::select('case_type', $case_types, null,['class'=>'form-control','id'=>'case_type','placeholder'=>'select case_type','autocomplete'=>'off','required'=>'true']) !!}
+                                     {!! Form::select('case_types[]', $case_types, null,
+                                     ['class'=>'col-md-12',
+                                     'multiple' => 'multiple',
+                                     'id'=>'case_type',
+                                     'autocomplete'=>'off',
+                                     'required'=>'true']) !!}
                                 </div>
                                 {!! $errors->first('case_type','<span class="help-inline">:message</span>') !!}
                             </div><!-- /.input-group -->
@@ -182,9 +187,19 @@
 @stop
 
 @section('pageCss')
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
     .blog-details__content {
         border:none !important;
     }
 </style>
+@stop
+
+@section('pageJs')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $('#case_type').select2();
+</script>
+
 @stop

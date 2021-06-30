@@ -22,7 +22,6 @@ class Lawyer extends Model
         'address',
         'description',
         'image',
-        'case_type',
         'gender',
         'consultancy_fees',
         'district_id',
@@ -37,9 +36,8 @@ class Lawyer extends Model
         'address' => 'required',
         'description' => 'required',
         'image' => 'required',
-        'case_type' => 'required',
         'gender' => 'required',
-        'consultancy_fees'=>'required|numeric',
+        'consultancy_fees'=>'required',
         'district_id'=>'required'
     ];
 
@@ -47,8 +45,9 @@ class Lawyer extends Model
     {
         return $this->belongsTo(District::class, 'district_id');
     }
-     public function caseType()
-    {
-        return $this->belongsTo(Case_type::class, 'case_type');
-    }
+
+    public function case_types()
+     {
+         return $this->hasMany('App\Models\UserCaseType', 'case_type_id', 'id');
+     }
 }

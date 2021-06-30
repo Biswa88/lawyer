@@ -26,7 +26,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <link rel="stylesheet" href="{{asset('template/dist/css/theme.min.css')}}"> 
      <!-- For Date picker-->
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+     
+     @yield('pageCss')
 </head>
 <body>
     <div id="app">
@@ -44,6 +46,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+                   
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -52,6 +55,9 @@
                             <a class="nav-link" href="{{ route('my.booking') }}">{{ __('My Booking') }}</a>
                            
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('public.home') }}">{{ __('Book Appointment') }}</a>
+                             </li>
                         
                         @endif 
                         <!-- Authentication Links -->
@@ -77,29 +83,44 @@
                                     @else
                                     <a href="{{ url('\dashboard') }}" class="dropdown-item">Dashboard</a>
                                     @endif
+                                   
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
-                                    </a>
+                                    </a> 
                                     
-                                     <a href="{{ route('password.change') }}" class="dropdown-item"> Change Password</a>  
+                                      <a href="{{ route('password.change') }}" class="dropdown-item"> Change Password</a>   
                                     
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                       
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> 
+                                    
                                         @csrf
                                     </form>
-                                </div>
+                               </div>
                             </li>
                         @endguest
                     </ul>
                 </div>
             </div>
-        </nav>
+     </nav>
 
         <main class="py-4">
+		
+			@if(Session::has('message'))
+                <div class="row">
+                 <div class="col-lg-12">
+                       <div class="alert {{ Session::get('alert-class', 'alert-info') }}">
+                             <button type="button" class="close" data-dismiss="alert">×</button>
+                             {!! Session::get('message') !!}
+                       </div>
+                    </div>
+                </div>
+              @endif
+
+              
+			  
             @yield('content')
         </main>
     </div>
@@ -148,5 +169,7 @@
     
 
         </style>
+
+        @yield('pageJs')
 </body>
 </html>

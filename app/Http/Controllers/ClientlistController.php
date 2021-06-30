@@ -27,7 +27,8 @@ class ClientlistController extends Controller
 	}
 	public function allTimeAppointment()
     {
-        $bookings = Booking::latest()->paginate(20);
+        $bookings = Booking::latest()->paginate(4);
+        
         return view('admin.clientlist.index',compact('bookings'));
     }
 

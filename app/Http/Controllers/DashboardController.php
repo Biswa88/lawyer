@@ -13,10 +13,10 @@ class DashboardController extends Controller
      }
     public function index()
     {
-    	if(Auth::user()->role->name=='client'){
+        if(Auth::user()->role->name=='client'){
     		return view('home');
     	}
         
     	return view('dashboard');
-}
+   }
 }

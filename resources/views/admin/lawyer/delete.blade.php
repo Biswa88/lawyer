@@ -38,13 +38,17 @@
 	<div class="card">
 	<div class="card-header"><h3>Deactivate My Profile</h3></div>
 	<div class="card-body">
-        <img src="{{asset('images')}}/{{$user->image}}" width="120">
+        @if($user->image)
+          <img src="{{asset( $user->image )}}" width="120">  
+          @endif
         <h2>{{$user->name}}</h2>
 		<a href="{{ route('deactivate_lawyer') }}" class="btn btn-danger mr-2">Confirm</a>
 			</div>
 		</div>
 	</div>
 </div>
+</div>
+
 
 
 @endsection

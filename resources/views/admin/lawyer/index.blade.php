@@ -42,7 +42,12 @@
                 <td>{{$user->bcr}}</td>
                 <td>{{$user->address}}</td>
                
-                 <td>{{$user->case_type}}</td>
+                 <td>
+                  @foreach ($user->case_types as $casetype)
+                    {{ $casetype->caseType->case_type }} , 
+                  @endforeach
+                  
+                  </td>
                  <td>{{$user->gender}}</td>
                  <td>{{$user->phone}}</td>
                  <td>{{$user->description}}</td>

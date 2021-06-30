@@ -47,7 +47,7 @@
 
 <body>
     <div class="preloader">
-        <img src="{{ asset('assets/images/loader.png') }}" class="preloader__image" alt="">
+        <img src="{{ asset('assets/images/loader2.gif') }}" class="preloader__image" alt="">
     </div><!-- /.preloader -->
     <div class="page-wrapper">
         <div class="site-header__header-one-wrap">
@@ -65,6 +65,8 @@
                             <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-dribbble"></i></a>
                         </div><!-- /.topbar-one__social -->
+
+                       
                         <a href="{{  route('public_view.create') }}" class="topbar-one__guide-btn">Register as a Lawyer</a>
                         <a href="{{  route('public_view.create1') }}" class="topbar-one__guide-btn client-btn-nav">Register as a Client</a>
                     </div><!-- /.topbar-one__right -->
@@ -73,6 +75,12 @@
            
             @include('layouts.header')
         </div><!-- /.site-header__header-one-wrap -->
+
+        @if(Session::has('message'))
+            <div class="alert bg-warning alert-warning text-white" role="alert">
+                {{Session::get('message')}}
+            </div>
+        @endif
 
         @yield('main_content')
        
@@ -105,9 +113,12 @@
     <script src="{{ asset('assets/js/theme.js') }}"></script>
     <script>
         $('#datepicker').Zebra_DatePicker({
-    direction: 1
+    direction: true,
+        format: 'Y-m-d'
 });
     </script>
+
+    @yield('pageJs')
 </body>
 
 </html>

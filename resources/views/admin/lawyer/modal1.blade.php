@@ -8,14 +8,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <p><img src="{{asset('images')}}/{{$user->image}}" class="table-user-thumb" alt="" width="200"></p>
+          <p><img src="{{asset('profile')}}/{{$user->image}}" class="table-user-thumb" alt="" width="200"></p>
            <p class="badge badge-pill badge-dark">Role:{{$user->role->name}}</p>
           
           <p>Name:{{$user->name}}</p>
           <p>Email:{{$user->email}}</p>
-          <p>BCR:{{$user->bcr}}</p>
+         
           <p>Address:{{$user->address}}</p>
-          <p>Case_deal:{{$user->case_type}}</p>
+          
           <p>Gender:{{$user->gender}}</p>
           <p>Phone:{{$user->phone}}</p>
           <p>About:{{$user->description}}</p>

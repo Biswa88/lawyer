@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="container">
     <div class="row justify-content-center">
 
@@ -17,6 +19,7 @@
        
         <div class="col-md-8">
             <div class="card">
+                <section class="banner-one" style="background-image: url('assets/images/backgrounds/home_banner.jpg');">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -24,7 +27,7 @@
                     <div style="text-align: center; margin-bottom: 30px;">
                     <img src="{{ asset('assets/images/law_logo.jpg')}}" width=300 height=180>
                 </div>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('post.login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -74,6 +77,7 @@
                             </div>
                         </div>
                     </form>
+                </section>
                 </div>
             </div>
         </div>

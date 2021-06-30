@@ -10,7 +10,11 @@
                     <img src="{{asset('images')}}/{{ $user->image}}" width="100px" style="border-radius: 50%;">
                     <br>
                    <p> Name:{{ ucfirst($user->name )}}</p>
-                   <p> Expertise:{{ucfirst( $user->case_deal )}}</p>
+                   <p> Case Type:{{ucfirst( $user->case_type )}}</p>
+                   <p> Consultancy Fees:{{ucfirst( $user->consultancy_fees )}}</p>
+                   <p> District:{{ucfirst( $user->district_id )}}</p>
+                   <p> Phone:{{ucfirst( $user->phone )}}</p>
+                   <p> Email:{{ucfirst( $user->email )}}</p>
                         
                    
 

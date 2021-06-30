@@ -3,7 +3,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="main-nav__logo-box">
-                <a href="index.html" class="main-nav__logo">
+                <a href="{{ url('/') }}" class="main-nav__logo">
                    <img src="{{ asset('assets/images/law_logo.jpg') }}" class="main-logo" width="123" alt="Awesome Image" />
                 </a>
                 <a href="#" class="side-menu__toggler"><i class="fa fa-bars"></i>
@@ -24,12 +24,20 @@
                         <a href="{{  route('contact_us') }}">Contact</a>
                         
                     </li>
+                    <li class="">
+                        @if(auth()->check()&& auth()->user()->role->name ==='client')
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a href="{{ url('user-profile') }}" class="dropdown-item">Client Dashboard</a>
+                            @else
+                            <a href="{{ url('public.home') }}" class="dropdown-item"></a>
+                            @endif  
+                                </li>
                     
                 </ul>
             </div><!-- /.navbar-collapse -->
             <div class="main-nav__right">
               
-                <a href="{{ route('login') }}" class="main-nav__login"><i class="tripo-icon-avatar"></i></a>
+                <a href="{{ route('login') }}" class="main-nav__login"><i class="tripo-icon-avatar">Login</i></a>
                
             </div><!-- /.main-nav__right -->
         </div>

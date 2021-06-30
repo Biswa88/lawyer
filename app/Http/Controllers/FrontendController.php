@@ -8,7 +8,7 @@ use App\Models\Time;
 use App\Models\User;
 use App\Models\Booking;
 use App\Mail\AppointmentMail;
-
+use Illuminate\Support\Facades\Redirect;
 
 class FrontendController extends Controller
 {
@@ -29,11 +29,18 @@ class FrontendController extends Controller
        }
        public function show(Request $request)
        {
+		   
+		   //dd($request->all());
+		   
            $lawyerId = $request->lawyer_id;
            $date = $request->date;
 
            $appointment = Appointment::where('user_id',$lawyerId)->where('date',$date)->first();
-           if(!$appointment) return redirect()->back()->with('Apppointment not available');
+           if(!$appointment) 
+           {
+                return redirect()->back()->with(['message' => 'No appointment available for the selected date'])->withInput();
+           }
+
            $times = Time::where('appointment_id',$appointment->id)->where('status',0)->get();
            
            
@@ -58,7 +65,7 @@ class FrontendController extends Controller
             return redirect()->back()->with('errmessage','You have already booked an appointment.Please wait to make next appointment');
         }
 
-        Booking::create([
+        $booking = Booking::create([
             'user_id'=> auth()->user()->id,
             'lawyer_id'=> $request->lawyerId,
             'time'=> $request->time,
@@ -80,16 +87,29 @@ class FrontendController extends Controller
         try{
             \Mail::to(auth()->user()->email)->send(new AppointmentMail($mailData));
         }catch(\Exception $e){
-
+            dd($e);
+            die('errer');
         }
-
-        return redirect()->back()->with('message','Your appointment was booked');
+		$amount = User::whereId($request->lawyerId)->first()->consultancy_fees;
+		$buyer = auth()->user();
+		
+		return redirect()->route('make_payment', 
+					[
+						'booking_id' => $booking->id,
+						'user_id' => $request->lawyerId,
+						'amount' => $amount,
+						'mobile_number' => $buyer->phone,
+						'email' => $buyer->email,
+						
+					])->with('message','Proceed to payment for fix the appointment');
+        //return redirect()->back()->with('message','Your appointment was booked');
     }
     public function checkBookingTimeInterval()
     {
         return Booking::orderby('id','desc')
             ->where('user_id',auth()->user()->id)
             ->whereDate('created_at',date('Y-m-d'))
+            ->where('status', 0)
             ->exists();
     }
     public function myBookings()

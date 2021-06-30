@@ -18,8 +18,8 @@
     
                 </div>
 
-                {!! Form::open(array('route'=>['public_view.save'],
-                    'id'=>'public_view.save', 
+                {!! Form::open(array('route'=>['public_view.save1'],
+                    'id'=>'public_view.save1', 
                     'files' => true, 
                     'class'=>'contact-one__form'
                     )) !!}   

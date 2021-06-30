@@ -166,7 +166,10 @@
     </div>
 
 </div>
+
 </form>
+
+
 @else 
  <h3>Your appoinment time list: {{$myappointments->count()}}</h3> 
 
@@ -194,6 +197,7 @@
 
 
                     </form>
+              
 
 
               </td>

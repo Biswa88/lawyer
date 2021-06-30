@@ -28,6 +28,11 @@ class User extends Authenticatable
         'gender',
         'phone',
         'description',
+        
+         'district_id',
+          'consultancy_fees',
+
+
     ];
 
     /**
@@ -52,6 +57,16 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Role','id','role_id');
     }
+
+    public function district()
+    {
+        return $this->belongsTo('App\Models\Master\District', 'district_id');
+    }
+
+    public function case_types()
+     {
+         return $this->hasMany('App\Models\UserCaseType');
+     }
      public function userAvatar($request){
          $image = $request->file('image');
         $name = $image->hashName();
@@ -60,4 +75,6 @@ class User extends Authenticatable
         return $name;
 
      }
+
+     
 }

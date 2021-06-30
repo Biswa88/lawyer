@@ -41,29 +41,32 @@
 		  <form class="forms-sample" action="{{route('case_type.store')}}" method="post" >@csrf  
 			<div class="row">
 				<div class="col-lg-6">
-                    <div class="form-group">
+                   
 
                         {!! Form::label('Case','',array('class'=>'')) !!}
                         {!! Form::text('case_type',null,['class'=>'form-control','id'=>'case_type','placeholder'=>'case_type','autocomplete'=>'off','required'=>'true']) !!}
                         
                         {!! $errors->first('case_type','<span class="help-inline">:message</span>') !!}
 				</div>
+                </div>
            
             <div class="form-group">
 
 				
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
+           
             </div>
         </div>
            
+    </div>
+</div>
+</div>
+</div>
+
 
 
 				</form>
-			</div>
-            </div>
-		</div>
-	</div>
-</div>
+            	
 
 
 @endsection

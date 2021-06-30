@@ -34,21 +34,21 @@
 	<div class="card">
 	<div class="card-header"><h3>Update Case_type</h3></div>
 	<div class="card-body">
-		  <form class="forms-sample" action="{{route('case_type.update',[$case_type->id])}}" method="post" >@csrf  
+		  <form class="forms-sample" action="{{route('case_type.update',[$case_deal->id])}}" method="post" >@csrf  
             @method('PUT')
 			<div class="row">
 				<div class="col-lg-6">
-                    <div class="form-group">
+                    {{-- <div class="form-group"> --}}
 
 					<label for=""> Case</label>
-					<input type="text" name="case_type" class="form-control @error('case_type') is-invalid @enderror" placeholder="case_type" value="{{ $case_type->case_type }}">
+					<input type="text" name="case_type" class="form-control @error('case_type') is-invalid @enderror" placeholder="case_type" value="{{ $case_deal->case_type }}">
                     @error('case_type')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
 				</div>
-           
+                </div>
             <div class="form-group">
 
 				
@@ -63,7 +63,7 @@
             </div>
 		</div>
 	</div>
-</div>
+
 
 
 @endsection

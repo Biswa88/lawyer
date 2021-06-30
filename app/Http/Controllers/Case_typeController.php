@@ -65,7 +65,7 @@ class Case_typeController extends Controller
     public function edit($id)
     {
         $case_deal = Case_type::find($id);
-        return view('admin.case_type.edit',compact('case_type'));
+        return view('admin.case_type.edit',compact('case_deal'));
     }
 
     /**

@@ -95,37 +95,26 @@
 		  <form class="forms-sample" action="{{route('state.store')}}" method="post" >@csrf  
 			<div class="row">
 				<div class="col-lg-6">
-                    <div class="form-group">
-
-                        {{-- <label for="">State name</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="enter name" value="{{old('name')}}">
-                        @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror--}}
-                            {!! Form::label('State name','',array('class'=>'')) !!}
+                  {!! Form::label('State name','',array('class'=>'')) !!}
                         {!! Form::text('name',null,['class'=>'form-control','id'=>'name','placeholder'=>'name','autocomplete'=>'off','required'=>'true']) !!}
-                        
-                        {!! $errors->first('name','<span class="help-inline">:message</span>') !!}
+                         {!! $errors->first('name','<span class="help-inline">:message</span>') !!}
 
 				</div> 
+            </div>
            
             <div class="form-group">
-
-				
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+               <button type="submit" class="btn btn-primary mr-2">Submit</button>
             </div>
         </div>
-           
+    </div>
+</div>
+</div>
+</div>
+
 
 
 				</form>
-			</div>
-            </div>
-		</div>
-	</div>
-</div>
+		
 
 
 @endsection
