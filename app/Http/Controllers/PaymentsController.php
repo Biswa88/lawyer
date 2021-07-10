@@ -7,6 +7,7 @@ use App\Models\Payment;
 use App\Models\User;
 use App\Models\Booking;
 use Auth;
+use App\Models\Admin\AppointmentComission;
 
 class PaymentsController extends Controller
 {
@@ -33,7 +34,7 @@ class PaymentsController extends Controller
 								"X-Auth-Token:test_df641dedda0965589c9e44952a4"));
 			  
 		$payload = Array(
-		    'purpose' => 'Lawer Booking',
+		    'purpose' => 'Lawyer Booking',
 		    'amount' => $request->amount,
 		    'phone' => $request->mobile_number,
 		    'buyer_name' => $request->name,
@@ -68,7 +69,19 @@ class PaymentsController extends Controller
 		$data['amount_paid'] = $request->amount;
 		$data['payment_request_id'] = $payment_request_id;
 		$data['payment_status'] = 'Failed';
-		Payment::create($data);
+		if($payment = Payment::create($data)) {
+			$comission_data = [];
+
+			$comission_data['payment_id'] = $payment->id;
+			$comission_data['commission_pc'] = 3;
+			$comission_data['paid_amount'] = $request->amount;
+			$comission_data['comission_amount'] =  ((3/100)*$request->amount);
+
+			AppointmentComission::create($comission_data);
+
+		}
+
+
 
 
 		return redirect($response->payment_request->longurl);

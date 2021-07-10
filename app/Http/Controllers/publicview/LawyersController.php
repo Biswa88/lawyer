@@ -13,6 +13,7 @@ use App\Models\PublicView\Lawyer;
 use App\Models\UserCaseType;
 use App\Models\User;
 
+
 class LawyersController extends Controller
 {
     public function create()
@@ -25,7 +26,9 @@ class LawyersController extends Controller
     }
 
     public function save(Request $request) {
-        //dd($request->all());
+        if(!isset($request->tnc) && !$request->tnc == 1) {
+            return Redirect::back()->with('message','Please agree to our terms and conditions')->withInput();
+        }
 
         $data = $request->all();
         //$data['image'] = $name;
@@ -103,9 +106,7 @@ class LawyersController extends Controller
             $where['district_id'] = $request->district_id;
         }
 
-        if($request->case_type) {
-            $where['case_type'] = $request->case_type;
-        }
+        
 
         if($request->lawyer_id) {
             $where['id'] = $request->lawyer_id;
@@ -120,6 +121,19 @@ class LawyersController extends Controller
         if($request->cfes) {
             $data = $data->where('consultancy_fees', '<=', $request->cfes);   
         }
+
+
+        if($request->case_type) {
+            $case_type_users = UserCaseType::where('case_type_id', $request->case_type)->where('status', 1)->get();
+            $case_type_users_arr = [];
+
+            foreach($case_type_users as $k => $v) {
+                $case_type_users_arr[] = $v->user_id;
+            }
+            $data = $data->whereIn('id', $case_type_users_arr);
+        }
+
+
 
         $results = $data
                         ->with('district','case_types.caseType')

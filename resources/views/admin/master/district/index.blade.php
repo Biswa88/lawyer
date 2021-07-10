@@ -43,7 +43,7 @@
                          
                            <a href="{{route('district.edit',[$district->id])}}" class="btn btn-primary">Update</a> 
                           
-                           <a href="{{route('district.show',[$district->id])}}" class="btn btn-warning">Delete </a>  
+                           <a href="{{route('district.destroy',[$district->id])}}" class="btn btn-warning">Delete </a>  
                              {{--   <form action="{{route('case_deal.edit',[$case_deal->id])}}" method="post">@csrf
                                 @method('DELETE')
                                 <button type="submit">Delete</button>

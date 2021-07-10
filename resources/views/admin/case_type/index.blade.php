@@ -22,8 +22,7 @@
             
             <th>Action</th>
             
-           
-          </tr>
+           </tr>
           </thead>
           <tbody>
               

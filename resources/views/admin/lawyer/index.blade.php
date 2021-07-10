@@ -52,11 +52,11 @@
                  <td>{{$user->phone}}</td>
                  <td>{{$user->description}}</td>
                 
-                  {{-- <td>
+                   {{--  <td>
                     <a href="{{"delete/".$user['id']}}" class="btn btn-info">Delete</a> 
                     <a href="" class="btn btn-warning">Edit</a></td>
                   
-                </td>   --}}
+                </td>     --}}
                 <td>
                     <div class="table-actions">
                         <a href="#" data-toggle="modal" data-target="#exampleModal{{$user->id}}"class="btn btn-info">View

@@ -78,7 +78,11 @@
                     <div class="tour-one__content">
                         <div class="tour-one__stars">
                             @if($v->rating)
-                            <i class="fa fa-star"></i> {{ $v->rating }} Star
+                            <?php 
+                                $count = DB::table('ratings')->where('lawyer_id', $v->id)->count();
+                            ?>
+
+                            <i class="fa fa-star"></i> {{ $v->rating }} Star &nbsp; (<i>{{ $count }}</i>)
                             @else
                             Not Yet Rated
                             @endif
@@ -95,7 +99,10 @@
                             
                         </ul><!-- /.tour-one__meta --> 
                         @endif
+                        @if( $v->district)
                         <a href="{{  route('public.search.lawyer', ['district_id' => $v->district->id]) }}"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ strtoupper($v->district->name) }}</a>
+                        @endif
+                        
                     </div><!-- /.tour-one__content -->
                 </div><!-- /.tour-one__single -->
             </div><!-- /.col-lg-4 -->

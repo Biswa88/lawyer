@@ -127,6 +127,28 @@
                 </ul>
               </li>
               @endif
+
+              @if(auth()->check()&& auth()->user()->role->name ==='admin')
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Commission
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right">1</span>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('reports.commission') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>View </p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+              @endif
                @if(auth()->check()&& auth()->user()->role->name ==='admin') 
 
               <li class="nav-item">
@@ -149,7 +171,7 @@
                 </ul>
               </li>
 
-              <li class="nav-item">
+               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
@@ -172,8 +194,8 @@
                     </a>
                   </li>
                 </ul>
-              </li>
-
+              </li> 
+              
 
               
                @endif 
@@ -212,7 +234,7 @@
             </li>
             @endif
 
-            @if(auth()->check()&& auth()->user()->role->name ==='admin') 
+             @if(auth()->check()&& auth()->user()->role->name ==='lawyer') 
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
@@ -237,7 +259,7 @@
                   </li>
               </ul>
             </li>
-            @endif
+            @endif  
             @if(auth()->check()&& auth()->user()->role->name ==='admin') 
             <li class="nav-item">
               <a href="#" class="nav-link">

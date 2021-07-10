@@ -76,28 +76,42 @@ Route::group(['middleware'=>['auth','client']],function(){
 
 Route::group(['middleware'=>['auth','admin']],function(){
        Route::resource('lawyer','LawyerController');
-       Route::get('/clients','ClientlistController@index')->name('client');
-       Route::get('/clients/all','ClientlistController@allTimeAppointment')->name('all.appointments');
-       Route::get('/status/update/{id}','ClientlistController@newStatus')->name('update.status');
+     
+       
        Route::resource('case_type','Case_typeController');
        Route::group(['prefix'=>'state'],function(){
              Route::get('/','StatesController@index')->name('state.index');
              Route::get('/create','StatesController@create')->name('state.create');
              Route::post('/store','StatesController@store')->name('state.store');
             });
-       Route::group(['prefix'=>'district'],function(){
+        Route::group(['prefix'=>'district'],function(){
              Route::get('/','DistrictsController@index')->name('district.index');
              Route::get('/create','DistrictsController@create')->name('district.create');
              Route::post('/store','DistrictsController@store')->name('district.store');
-             Route::get('/edit','DistrictsController@edit')->name('district.edit');
-             Route::get('/show','DistrictsController@show')->name('district.show');
+             Route::get('/edit/{num}','DistrictsController@edit')->name('district.edit');
+             Route::post('/update/{num}','DistrictsController@update')->name('district.update');
+           
+              Route::get('/show','DistrictsController@show')->name('district.show');
+              Route::get('/delete/{num}','DistrictsController@destroy')->name('district.destroy');
+            });
 
-           });
+            Route::group(['prefix'=>'reports'],function(){
+                  Route::get('/commission','Admin\ReportsController@CommisonReport')->name('reports.commission');
+            });
+
+            
+    
            Route::get('lawyer-details','LawyerController@index1')->name('lawyer.index1');
       Route::get('lawyer-detailss','LawyerController@index2')->name('lawyer.index2');
         });
 
 Route::group(['middleware'=>['auth','lawyer']],function(){
+
+      Route::get('/status/update/{id}','ClientlistController@newStatus')->name('update.status');
+      Route::get('/clients','ClientlistController@index')->name('client');
+       
+      Route::get('/clients/all','ClientlistController@allTimeAppointment')->name('all.appointments');
+
        Route::resource('appointment','AppointmentController');
        Route::post('/appointment/check','AppointmentController@check')->name('appointment.check');
        Route::post('/appointment/update','AppointmentController@updateTime')->name('update');

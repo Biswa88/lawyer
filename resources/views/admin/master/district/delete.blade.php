@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Case Type</h5>
-                    <span>Delete Case Type</span>
+                    <h5>District</h5>
+                    <span>Delete District</span>
                 </div>
             </div>
         </div>
@@ -19,8 +19,8 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Case Type</a></li>
-                <li class="breadcrumb-item active" aria-current="page">delete</li>
+                <li class="breadcrumb-item"><a href="#">Delete</a></li>
+                <li class="breadcrumb-item active" aria-current="page">district</li>
             </ol>
         </nav>
     </div>
@@ -39,13 +39,13 @@
 	<div class="card-header"><h3>Confirm delete</h3></div>
 	<div class="card-body">
         
-        <h2>{{$case_type->case_type}}</h2>
-		<form class="forms-sample" action="{{route('case_type.destroy',[$case_type->id])}}" method="post" >@csrf
+        <h2>{{$district->name}}</h2>
+		<form class="forms-sample" action="{{route('district.destroy',[$name->id])}}" method="post" >@csrf
             @method('DELETE')
 			
             <div class="card-footer">
                 <button type="submit" class="btn btn-danger mr-2">Confirm</button>
-                <a href="{{route('case_type.index')}}" class="btn btn-secondary">
+                <a href="{{route('district.index')}}" class="btn btn-secondary">
                     Cancel
                   
                 </a>

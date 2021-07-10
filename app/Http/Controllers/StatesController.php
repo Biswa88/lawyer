@@ -21,6 +21,7 @@ class StatesController extends Controller
         if($validator->fails()) return Redirect::back()->withErrors($validator)->withInput();
 
         $state = State::create($data);
+        return redirect()->back()->with('message','State created');
     }
    
 }

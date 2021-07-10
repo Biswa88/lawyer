@@ -28,5 +28,20 @@ class Payment extends Model
 		'payment_request_id'	=> 'required|unique:payemts,payment_request_id',
 		'payment_status'	=> 'required',
     ];
+
+	public function user()
+    {
+  	    return $this->belongsTo(App\Models\User::class);
+    }
+
+	public function buyer()
+    {
+  	    return $this->belongsTo(App\Models\User::class);
+    }
+
+	public function booking()
+    {
+  	    return $this->belongsTo(App\Models\Booking::class);
+    }
 }
 

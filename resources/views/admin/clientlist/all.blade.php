@@ -19,13 +19,13 @@
                           <th scope="col">#</th>
                           <th scope="col">Photo</th>
                           <th scope="col">Date</th>
-                          <th scope="col">Name</th>
+                          <th scope="col">User</th>
                           <th scope="col">Email</th>
                           <th scope="col">Phone</th>
                           <th scope="col">Gender</th>
 
                           <th scope="col">Time</th>
-                          <th scope="col">Lawyer</th>
+                          <th scope="col">Doctor</th>
                           <th scope="col">Status</th>
                         </tr>
                       </thead>
@@ -56,15 +56,11 @@
                        
                       </tbody>
                     </table>
-                  </div>
-              
-                
-              
+
+                </div>
                 {{$bookings->links()}}
-              </div>
             </div>
         </div>
-        </div>
-             
-
+    </div>
+</div>
 @endsection

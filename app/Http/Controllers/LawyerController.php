@@ -43,9 +43,16 @@ class LawyerController extends Controller
     public function view_all_appointments()
     {
         //dd('ddd');
-        $all_bookings =Booking::where('lawyer_id', Auth::user()->id)->with('lawyer', 'user')->paginate(50);
+         
+        
+        $all_bookings =Booking::where('lawyer_id', Auth::user()->id)->with('lawyer', 'user')->paginate(10);
+       
+        
         return view('admin.lawyer.view_lawyers_appointments',compact('all_bookings'));
+       
+       
     }
+  
 
     /**
      * Show the form for creating a new resource.

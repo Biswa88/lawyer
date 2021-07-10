@@ -6,7 +6,7 @@
 
 
 
-<div class="row">
+
     <div class="col-lg-6">
        {!! Form::label('District Name','',array('class'=>'')) !!}
        {!! Form::text('name',null,['class'=>'form-control','id'=>'name','placeholder'=>'District name','autocomplete'=>'off','required'=>'true']) !!}

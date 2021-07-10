@@ -169,11 +169,21 @@
                         </div>
                         
 
+                        <div class="col-md-12">
+
+                            <div class="form-check">
+  <input class="form-check-input" name="tnc" type="checkbox" value="1" id="tnc">
+  <label class="form-check-label" for="flexCheckChecked">
+    I agree to pay a percentage fees of 3% to Online Lawyer Hire for the
+appoints booked by clients on the Website. 
+  </label>
+</div>
+                        </div>
 
 
                         <div class="col-md-12">
                             <div class="input-group">
-                                <button type="submit" class="thm-btn contact-one__btn">SUBMIT</button><!-- /.thm-btn contact-one__btn -->
+                                <button type="submit" id="submitbtn"  class="thm-btn contact-one__btn">SUBMIT</button><!-- /.thm-btn contact-one__btn -->
                             </div><!-- /.input-group -->
                         </div><!-- /.col-md-12 -->
                     </div><!-- /.row low-gutters -->
@@ -200,6 +210,18 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $('#case_type').select2();
+
+
+    $('#tnc').click(function(){
+            if($(this).prop("checked") == true){
+                //console.log('checked')
+                $('#submitbtn').removeAttr('disabled');
+            }
+            else if($(this).prop("checked") == false){
+                //console.log('unchecked')
+                $('#submitbtn').attr('disabled','disabled');
+            }
+        });
 </script>
 
 @stop

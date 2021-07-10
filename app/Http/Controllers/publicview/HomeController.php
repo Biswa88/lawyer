@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        
         $districts = District::pluck('name','id');
         $case_types = Case_type::pluck('case_type','id');
 
@@ -22,8 +23,11 @@ class HomeController extends Controller
                             ->orderBy('rating', 'DESC')
                             ->with('district','case_types.caseType')
                             ->limit(6)
-                            ->get();
+                             ->get();
+                            
         //dd($top_rates_lawyers);
+        $where = [];
+        $where['status'] = 1;
 
         return view('publicview.home',compact('districts','case_types', 'top_rates_lawyers'));
     }

@@ -8,6 +8,7 @@
         <div class="row">
             <div class="col-lg-12">
                         @foreach($results as $k => $v)
+                       
                         <div class="blog-two__single blog-one__single">
                             <div class="row" style="margin-bottom: 10px;">
                                 <div class="col-md-3">
@@ -23,7 +24,9 @@
                                     <div class="blog-two__content my-auto">
                                         <ul class="list-unstyled blog-one__meta">
                                             <li>
+                                                @if( $v->district)
                                                 <i class="far fa-user-circle"></i> {{ $v->district->name }}</li>
+                                                @endif
                                             
                                             <li><i class="far fa-comments"></i>  BCR Number : {{$v->bcr}}</li>
                                             <li><i class="far fa-comments"></i>  Consultancy Fees : {{$v->consultancy_fees}}</li>
@@ -75,7 +78,7 @@
                                         </form>
                                         @else
                                         <a href="{{ route('login') }}" class="blog-two__link"></a>
-                                        <a href="{{ route('public_view.create') }}" class="blog-two__link">Sign In to view Contact Details</a>
+                                        <a href="{{ route('public_view.create1') }}" class="blog-two__link">Sign In to view Contact Details</a>
 
                                         @endif
 

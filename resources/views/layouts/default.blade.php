@@ -116,6 +116,11 @@
     direction: true,
         format: 'Y-m-d'
 });
+
+$('.datepicker').Zebra_DatePicker({
+    direction: true,
+        format: 'Y-m-d'
+});
     </script>
 
     @yield('pageJs')

@@ -19,12 +19,15 @@ class ClientlistController extends Controller
     }
 	public function newStatus($id)
 	{
+
 		$booking  = Booking::find($id);
+        //dd($booking->status);
         $booking->status =! $booking->status;
         $booking->save();
         return redirect()->back();
 
 	}
+    
 	public function allTimeAppointment()
     {
         $bookings = Booking::latest()->paginate(4);

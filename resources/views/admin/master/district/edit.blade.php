@@ -39,22 +39,24 @@
 	<div class="card-header"><h3>Edit Districts</h3></div>
 	<div class="card-body">
 
-        	{!! Form::model($user,array('route'=>['district.update',($user->id)],
+        	{!! Form::model($district,array('route'=>['district.update',($district->id)],
                 'id'=>'district.store', 
                 'files' => true, 
                 'class'=>'forms-sample',
-                'method' => 'PUT'
+                'method' => 'POST'
                 )) !!}    
 			@include('admin.master.district._form')
               <button type="submit" class="btn btn-primary mr-2">Update</button>
-                <button class="btn btn-light">Cancel</button>
+              
 
 
 				</form>
 			</div>
 		</div>
-	</div>
+    </div>
 </div>
+</div>
+
 
 
 @endsection

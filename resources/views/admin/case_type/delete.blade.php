@@ -22,7 +22,7 @@
                 <li class="breadcrumb-item"><a href="#">Case Type</a></li>
                 <li class="breadcrumb-item active" aria-current="page">delete</li>
             </ol>
-        </nav>
+      </nav>
     </div>
     </div>
 </div>

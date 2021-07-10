@@ -19,7 +19,7 @@
        
         <div class="col-md-8">
             <div class="card">
-                <section class="banner-one" style="background-image: url('assets/images/backgrounds/home_banner.jpg');">
+                <section class="banner-one" style="background-image: url('assets/images/backgrounds/banner1.png');">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -27,7 +27,7 @@
                     <div style="text-align: center; margin-bottom: 30px;">
                     <img src="{{ asset('assets/images/law_logo.jpg')}}" width=300 height=180>
                 </div>
-                    <form method="POST" action="{{ route('post.login') }}">
+                    <form class="loginform" method="POST" action="{{ route('post.login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -84,5 +84,10 @@
     </div>
 </div>
 </section>
+
+
+<style>
+    .loginform label { color: #ffffff; font-weight: 700; }
+</style>
 @endsection
 

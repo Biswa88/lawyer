@@ -8,7 +8,7 @@
             <div class="page-header-title">
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
-                    <span>Add State</span>
+                    <span>Add District</span>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             @endif
        
 	<div class="card">
-	<div class="card-header"><h3>Add State</h3></div>
+	<div class="card-header"><h3>Add District</h3></div>
 	<div class="card-body">
 		<form class="forms-sample" action="{{route('district.store')}}" method="post">@csrf
 			<div class="row">

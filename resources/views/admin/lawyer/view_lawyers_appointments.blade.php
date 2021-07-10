@@ -26,23 +26,24 @@
                           <th scope="col">Gender</th>
 
                           <th scope="col">Time</th>
-                          <th scope="col">Lawyer</th>
+                          {{--  <th scope="col">Lawyer</th>  --}}
                         
                         </tr>
                       </thead>
                       <tbody>
                         @forelse($all_bookings as $key=>$booking)
+                        @if($booking->user)
                         <tr>
-                          <th scope="row">{{$key+1}}</th>
-                          <td>
-                              @if($booking->user->image)
+                          <th scope="row">{{$key}}</th>
+                           <td>
+                               @if($booking->user->image)
                               <img src="/profile/{{$booking->user->image}}" width="80" style="border-radius: 50%;">
                                 @else
                                 <img src="{{  asset('assets/images/default_avatar.png') }}" width="80" style="border-radius: 50%;">
                                
-                                @endif
+                                @endif 
                                 
-                            </td>
+                            </td> 
                           <td>{{$booking->date}}</td>
                           <td>{{$booking->user->name}}</td>
                           <td>{{$booking->user->email}}</td>
@@ -63,9 +64,17 @@
                           <td>{{$booking->user->phone}}</td>
                           <td>{{$booking->user->gender}}</td>
                           <td>{{$booking->time}}</td>
-                          <td>{{$booking->lawyer->name}}</td>
+                          {{--  <td>{{$booking->lawyer->name}}</td>  --}}
+                          <td>
+                            @if($booking->status==0)
+                            <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> Pending</button></a>
+                            @else 
+                             <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success"> Cheked</button></a>
+                            @endif
+                        </td>
                           
                         </tr>
+                        @endif
                         @empty
                         <td>There is no any appointments !</td>
                         @endforelse
@@ -74,7 +83,7 @@
                     </table>
 
                 </div>
-                {{$all_bookings->links()}}
+                 {{$all_bookings->links()}}  
             </div>
         </div>
       </div>
